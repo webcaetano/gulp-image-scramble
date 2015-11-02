@@ -2,7 +2,9 @@
 
 GulpJS module for image-scramble with seed
 
-[![npm version](https://badge.fury.io/js/gulp-image-scramble.svg)](https://badge.fury.io/js/gulp-image-scramble) [![Build Status](https://travis-ci.org/webcaetano/gulp-image-scramble.svg?branch=master)](https://travis-ci.org/webcaetano/gulp-image-scramble) 
+[![npm version](https://img.shields.io/npm/v/gulp-image-scramble.svg?style=flat-square)](https://www.npmjs.com/package/gulp-image-scramble) 
+[![Build Status](https://img.shields.io/travis/webcaetano/gulp-image-scramble.svg?style=flat-square)](https://travis-ci.org/webcaetano/gulp-image-scramble) 
+[![npm donwloads](https://img.shields.io/npm/dt/gulp-image-scramble.svg?style=flat-square)](https://www.npmjs.com/package/gulp-image-scramble) 
 
 Scramble/Unscramble Images
 
