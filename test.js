@@ -10,9 +10,11 @@ var through = require('through2');
 describe('image-scramble', function() {
 	var mainFile = ['./examples/sample3.png'];
 	var outputFile = './examples/sample3-crop.png';
+	var expected = fs.readFileSync('./examples/expected.png');
+	var timeout = 7000;
 
 	it('should scramble an image with default options', function(done) {
-		this.timeout(5000);
+		this.timeout(timeout);
 		return gulp.src(mainFile)
 		.pipe(imgScramble())
 		.pipe(rename(function (path) {
@@ -20,14 +22,14 @@ describe('image-scramble', function() {
 		}))
 		.pipe(gulp.dest('./examples'))
 		.pipe(through.obj(function (file, enc, callback) {
-			expect(fs.readFileSync(outputFile)).to.be.an('object');
+			expect(fs.readFileSync(outputFile)).to.not.be.null;
 			fs.unlinkSync(outputFile);
 			done();
 		}));
 	});
 
 	it('should scramble an image with default seed (null)', function(done) {
-		this.timeout(5000);
+		this.timeout(timeout);
 		return gulp.src(mainFile)
 		.pipe(imgScramble({
 			sliceSize:5
@@ -37,7 +39,7 @@ describe('image-scramble', function() {
 		}))
 		.pipe(gulp.dest('./examples'))
 		.pipe(through.obj(function (file, enc, callback) {
-			expect(fs.readFileSync(outputFile)).to.be.an('object');
+			expect(fs.readFileSync(outputFile)).to.not.be.null;
 			fs.unlinkSync(outputFile);
 			done();
 		}));
@@ -45,7 +47,7 @@ describe('image-scramble', function() {
 
 
 	it('should scramble an image with seed', function(done) {
-		this.timeout(5000);
+		this.timeout(timeout);
 		return gulp.src(mainFile)
 		.pipe(imgScramble({
 			seed:'Kappa',
@@ -56,7 +58,8 @@ describe('image-scramble', function() {
 		}))
 		.pipe(gulp.dest('./examples'))
 		.pipe(through.obj(function (file, enc, callback) {
-			expect(fs.readFileSync(outputFile)).to.be.an('object');
+			expect(fs.readFileSync(outputFile)).to.not.be.null;
+			expect(fs.readFileSync(outputFile)).to.deep.equal(expected);
 			fs.unlinkSync(outputFile);
 			done();
 		}));
