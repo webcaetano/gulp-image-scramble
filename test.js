@@ -11,7 +11,7 @@ describe('image-scramble', function() {
 	var mainFile = ['./examples/sample3.png'];
 	var outputFile = './examples/sample3-crop.png';
 	var expected = fs.readFileSync('./examples/expected.png');
-	var timeout = 7000;
+	var timeout = 12000;
 
 	it('should scramble an image with default options', function(done) {
 		this.timeout(timeout);
