@@ -1,2 +1,67 @@
-# gulp-image-scramble
+# Gulp Image Scramble
+
 GulpJS module for image-scramble with seed
+
+[![npm version](https://badge.fury.io/js/gulp-image-scramble.svg)](https://badge.fury.io/js/gulp-image-scramble) [![Build Status](https://travis-ci.org/webcaetano/gulp-image-scramble.svg?branch=master)](https://travis-ci.org/webcaetano/gulp-image-scramble) 
+
+Scramble/Unscramble Images
+
+Very useful for protect canvas spritesheets.
+
+### Example
+
+#### Scramble (Server-Side)
+![](http://i.imgur.com/4oReaij.png)
+
+#### Unscramble (Client-Side)
+![](http://i.imgur.com/AwfN1Gq.png)
+
+### Usage Example
+
+```javascript
+var imgScramble = require('gulp-image-scramble');
+
+gulp.src(mainFile)
+.pipe(imgScramble({
+	seed:'Kappa',
+	sliceSize:5
+}))
+.pipe(gulp.dest('./dist'))
+```
+
+## Options
+
+#### seed
+- Seed to shuffle in same sequence
+
+#### sliceSize
+- size of each slice
+
+### Installation 
+
+```
+npm install gulp-image-scramble
+```
+
+
+## UnsrcambleImg (Client-Side)
+
+#### Installation
+```
+bower install unscramble-img
+```
+
+#### Usage 
+
+```javascript
+// unscrambleImg(src,sliceSize,seed)
+
+var canvas = unscrambleImg(img,sliceSize,'Kappa');
+```
+
+#### Phaser Example
+
+```javascript
+var bmp = unscrambleImg(img,sliceSize,'Kappa',game.add.bitmapData(img.width,img.height));
+var sprite = game.add.sprite(0, 0, bmp);
+```
