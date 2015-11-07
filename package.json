@@ -1,6 +1,6 @@
 {
   "name": "gulp-image-scramble",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Gulp module for image-scramble",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,7 @@
     "url": "https://github.com/webcaetano/gulp-image-scramble"
   },
   "dependencies": {
-    "image-scramble": "^2.0.4",
+    "image-scramble": "^2.2.1",
     "through2": "^2.0.0"
   }
 }
